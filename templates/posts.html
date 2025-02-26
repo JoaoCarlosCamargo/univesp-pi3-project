@@ -1,0 +1,28 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+	<br><br><br>
+	<div id="topo">
+	</div>
+
+	<hr>
+	<br><br>
+	<h1>Postagens</h1>
+
+	<div id="posts">
+	{% if not posts %}
+		<p>Nenhuma postagem cadastrada.</p>
+	{% else %}
+		{% autoescape off %}
+		{% for post in (posts|sort(attribute='created', reverse=True)) %}
+			<a href="{{ url_for('post', post_id=post['id']) }}">
+				<h3>{{ post['title'] }}</h3>
+			</a>
+			<span class="badge badge-primary">{{ post['created'] }}</span>
+			<hr>
+		{% endfor %}
+		{% endautoescape %}
+	{% endif %}
+	</div>
+
+{% endblock %}

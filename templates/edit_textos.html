@@ -1,0 +1,37 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+	<br><br><br>
+	<div id="topo">
+	</div>
+
+	<hr>
+	<br><br>
+    <h1>Editar Informações de Textos do Site</h1>
+    {% if flash %}
+        <div class="flash">{{ flash }}</div>
+    {% endif %}
+
+    <form action="{{ url_for('edit_textos', id=textos.id) }}" method="post" enctype="multipart/form-data">
+        <label for="quem_somos"><b>Quem Sou:</b></label>
+		<textarea id="quem_somos" name="quem_somos">{{ textos.quem_somos }}</textarea>
+		<script>
+		CKEDITOR.config.removePlugins = 'scayt,wsc'; // Desativa o aviso de vulnerabilidade
+		CKEDITOR.replace('quem_somos');
+		</script>
+        <br>
+        <hr>
+        <label for="sobre_a_comunidade"><b>Sobre a Comunidade:</b></label>
+        <textarea name="sobre_a_comunidade" id="sobre_a_comunidade">{{ textos.sobre_a_comunidade }}</textarea>
+		<script>CKEDITOR.replace('sobre_a_comunidade');</script>
+        <br>
+        <hr>
+        <label for="transparencia"><b>Meus Ingredientes:</b></label>
+        <textarea name="transparencia" id="transparencia">{{ textos.transparencia }}</textarea>
+		<script>CKEDITOR.replace('transparencia');</script>
+        <br>
+        <hr>
+        <center><button type="submit">Salvar</button></center>
+    </form>
+
+{% endblock %}
