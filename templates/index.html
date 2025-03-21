@@ -22,7 +22,7 @@
 
 	<div id="promocao">
 		<br><br><br><br><br>
-		<h1>Bolo da SemANA</h1>
+		<h1>Promoção da Semana</h1>
 
 		{% autoescape off %}
 		{% for promocao in promocao %}
@@ -34,7 +34,7 @@
 		{% endautoescape %}
 
 	{% for contato in contato %}
-		<a class="navbar-brand" href="https://api.whatsapp.com/send?phone={{ contato['whatsapp'] }}&text=Olá! Venho a partir do site. Estou interessado(a) no bolo da semana!">
+		<a class="navbar-brand" href="https://api.whatsapp.com/send?phone={{ contato['whatsapp'] }}&text=Olá! Venho a partir do site. Estou interessado(a) na promoção da semana!">
 		  &nbsp;<b>Clique aqui e garanta já o seu!</b>
 		</a>
 	{% endfor %}
@@ -77,6 +77,22 @@
 		<hr>
 	</div>
 
+	<div id="transparencia">
+		<br><br><br><br><br>
+		<h1 id="conteudo3">Consultoria</h1>
+		{% autoescape off %}
+		{% for texto in textos %}
+		  {{ texto['transparencia'] }}
+		{% endfor %}
+		{% endautoescape %}
+    <!-- Botão para iniciar a leitura -->
+<button id="ler-texto-btn3">
+    <i class="fas fa-volume-up" aria-hidden="true"></i>
+    <span class="sr-only">Ouvir Texto</span>
+</button>
+	</div>
+		<hr>
+
 	<div id="acomunidade">
 		<br><br><br><br><br>
 		<h1 id="conteudo2">Nossa Comunidade</h1>
@@ -91,6 +107,7 @@
     <i class="fas fa-volume-up" aria-hidden="true"></i>
     <span class="sr-only">Ouvir Texto</span>
 </button>
+		<hr>
 		<br><br>
 
 		<center>
@@ -98,7 +115,7 @@
 
 	<div id="galeria">
 		<br><br><br><br><br>
-		<h1>Galeria</h1>
+		<h1>Marcas</h1>
 
 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
   <div class="carousel-inner">
@@ -130,6 +147,7 @@
 						  imagemAtual.onload = function() {
 							const imagemProporcao = imagemAtual.naturalWidth / imagemAtual.naturalHeight;
 							const containerWidth = imagemAtual.parentNode.offsetWidth; // Largura do container da imagem
+							containerWidth = 300;
 
 							if (containerWidth / imagemProporcao < imagemAtual.naturalHeight) {
 							  imagemAtual.style.width = 'auto';
@@ -158,24 +176,11 @@
 
 		<br>
 </div>
-		<hr>
+
 	</div>
 
 	<br>
 
-	<div id="transparencia">
-		<br><br><br><br><br>
-		<h1 id="conteudo3">Meus Ingredientes</h1>
-		{% autoescape off %}
-		{% for texto in textos %}
-		  {{ texto['transparencia'] }}
-		{% endfor %}
-		{% endautoescape %}
-    <!-- Botão para iniciar a leitura -->
-<button id="ler-texto-btn3">
-    <i class="fas fa-volume-up" aria-hidden="true"></i>
-    <span class="sr-only">Ouvir Texto</span>
-</button>
-	</div>
+
 
 {% endblock %}

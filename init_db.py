@@ -22,7 +22,7 @@ def criar_tabelas():
     """, ('+5519991626248', 'https://www.facebook.com', 'https://www.instagram.com', 'joaocsc@gmail.com', 'Americana - SP, 13472-000'))
    
     c.execute("""INSERT INTO mensagem_bottom (texto) VALUES (?)
-    """, ('© 2024 Website desenvolvido por alunos da UNIVESP para o Projeto Integrador em Computação II.',))
+    """, ('© 2025 Website desenvolvido por alunos da UNIVESP para o Projeto Integrador em Computação III.',))
 
     c.execute("""
       INSERT INTO textos (quem_somos, sobre_a_comunidade, transparencia) select ?, ?, ? where not exists(select * from textos)
