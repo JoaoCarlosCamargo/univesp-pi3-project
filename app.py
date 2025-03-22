@@ -337,11 +337,11 @@ def process_cadastro():
 # Função para enviar mensagem no WhatsApp
 def enviar_whatsapp(telefone):
     account_sid = 'AC5b30a8de6e335f7a233678b3b9ee8758'
-    auth_token = 'bd8b0ddf1fa5047c3329401edcca3f8c'
+    auth_token = '96046615203a50c1bb178079097293ff'
     client = Client(account_sid, auth_token)
 
     mensagem = client.messages.create(
-        body="Obrigado por se cadastrar para receber as promoções das delícias doces da Ana!",
+        body="Obrigado por se cadastrar para receber as promoções!",
         from_='whatsapp:+14155238886',
         to=f'whatsapp:+55{telefone}'
     )
@@ -351,13 +351,13 @@ def enviar_whatsapp(telefone):
 # Função para enviar SMS usando Twilio
 def enviar_sms(telefone):
     account_sid = 'AC5b30a8de6e335f7a233678b3b9ee8758'
-    auth_token = 'bd8b0ddf1fa5047c3329401edcca3f8c'
+    auth_token = '96046615203a50c1bb178079097293ff'
     client = Client(account_sid, auth_token)
     print(telefone)
 
     mensagem = client.messages.create(
-        body="Obrigado por se cadastrar para receber as promoções das delícias doces da Ana!",
-        from_='+17315404560',
+        body="Obrigado por se cadastrar para receber as promoções!",
+        from_='+14155238886',
         to=telefone
     )
 
@@ -408,7 +408,7 @@ def process_campanha():
 # Função para enviar mensagem da campanha no WhatsApp
 def enviar_campanha_whatsapp(telefone, texto):
     account_sid = 'AC5b30a8de6e335f7a233678b3b9ee8758'
-    auth_token = 'bd8b0ddf1fa5047c3329401edcca3f8c'
+    auth_token = '96046615203a50c1bb178079097293ff'
     client = Client(account_sid, auth_token)
 
     mensagem = client.messages.create(
