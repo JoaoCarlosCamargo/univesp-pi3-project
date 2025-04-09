@@ -60,3 +60,4 @@ CREATE TABLE IF NOT EXISTS textos (
   sobre_a_comunidade TEXT NOT NULL,
   transparencia TEXT NOT NULL
 );
+

@@ -422,3 +422,4 @@ def enviar_campanha_whatsapp(telefone, texto):
 if __name__ == "__main__":
   criar_tabelas()
   app.run()
+
