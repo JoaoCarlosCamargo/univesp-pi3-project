@@ -14,6 +14,14 @@
 
 	<br>
 
+	<div id="usuarios">
+	<br><br><br><br><br>
+    <h2>Análise</h2>
+    <a href="{{ url_for('exibir_analise') }}" class="btn btn-sm btn-success">Análise</a>
+    <br>
+
+	<br>
+
 	<div id="promocao">
 	<br><br><br><br><br>
     <h2>Promoção da Semana</h2>
@@ -62,6 +70,7 @@
                     <th width="150">Ações</th>
                     <th>Nome</th>
                     <th>Telefone</th>
+                    <th>Criado em</th>
                 </tr>
             </thead>
             <tbody>
@@ -74,6 +83,7 @@
                         </td>
                         <td>{{ cliente.nome }}</td>
                         <td>{{ cliente.telefone }}</td>
+                        <td>{{ cliente.created }}</td>
                     </tr>
                 {% endfor %}
             </tbody>

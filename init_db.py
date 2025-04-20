@@ -32,6 +32,62 @@ def criar_tabelas():
       INSERT INTO promocao (nome, descricao, imagem) SELECT ?, ?, ? WHERE NOT EXISTS(SELECT * from promocao)
      """, ('Aguarde!', 'Em breve uma nova promoção', ''))
 
+    c.execute("""
+      DELETE FROM cliente
+    """)
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 0', '19991626248', '2025-04-01 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 1', '19991626244', '2025-04-19 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 2', '19991626245', '2025-04-19 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 4', '19991626247', '2025-04-19 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 6', '19991626249', '2025-04-16 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 7', '19991626250', '2025-04-11 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 8', '19991626251', '2025-04-02 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 9', '19991626252', '2025-04-02 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 10', '19991626253', '2025-04-02 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 11', '19991626254', '2025-04-02 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 13', '19991626256', '2025-04-08 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 14', '19991626258', '2025-04-03 13:49:57'))
+
+    c.execute("""
+      INSERT OR IGNORE INTO cliente (nome, telefone, created) VALUES (?, ?, ?)
+    """, ('Teste 15', '19991626259', '2025-04-03 13:49:57'))
+    
     conn.commit()
     conn.close()
 

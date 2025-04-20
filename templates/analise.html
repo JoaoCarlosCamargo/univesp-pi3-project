@@ -1,0 +1,17 @@
+{% extends 'base2.html' %}
+
+{% block content %}
+	<br><br><br>
+	<div id="topo">
+	</div>
+
+	<hr>
+	<br><br>
+    {% if flash %}
+        <div class="flash">{{ flash }}</div>
+    {% endif %}
+
+    <h1>Análise de Cadastros</h1>
+    <img src="data:image/png;base64,{{ imagem_base64 }}" alt="Gráfico de Cadastros">
+
+{% endblock %}

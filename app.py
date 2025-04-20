@@ -10,6 +10,11 @@ import uuid
 from werkzeug.utils import secure_filename
 import base64
 from twilio.rest import Client
+import matplotlib
+matplotlib.use('Agg')  # Force o uso do backend Agg
+import matplotlib.pyplot as plt
+from io import BytesIO
+import base64
 
 def get_db_connection():
     conn = sqlite3.connect('database.db')
@@ -419,7 +424,39 @@ def enviar_campanha_whatsapp(telefone, texto):
 
     print(mensagem.sid)
 
+@app.route('/analise')
+def exibir_analise():
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    cursor.execute('SELECT strftime("%Y-%m-%d", created) as data, COUNT(*) as total FROM cliente GROUP BY strftime("%Y-%m-%d", created)')
+    resultados = cursor.fetchall()
+    conn.close()
+
+    print(f"Resultados da consulta: {resultados}")
+
+    dias = [row['data'] for row in resultados]
+    contagens = [row['total'] for row in resultados]
+
+    print(f"Dias: {dias}")
+    print(f"Contagens: {contagens}")
+    print(f"Tipo dos dados em contagens: {[type(c) for c in contagens]}")
+
+    fig, ax = plt.subplots(figsize=(8, 6))
+    ax.bar(dias, contagens, color='skyblue')
+    ax.set_xlabel('Data de Cadastro')
+    ax.set_ylabel('Número de Cadastros')
+    ax.set_title('Distribuição de Cadastros ao Longo do Tempo')
+    plt.xticks(rotation=60, ha='right')
+    plt.tight_layout()
+
+    buffer = BytesIO()
+    plt.savefig(buffer, format='png')
+    buffer.seek(0)
+    imagem_base64 = base64.b64encode(buffer.read()).decode('utf-8')
+    plt.close()
+
+    return render_template('analise.html', imagem_base64=imagem_base64)
+
 if __name__ == "__main__":
   criar_tabelas()
   app.run()
-

@@ -6,9 +6,9 @@ Para executar a aplicação:
 
 No CMD:
 
-virtualenv venv
+virtualenv novo
 
-venv\scripts\activate
+novo\scripts\activate
 
 pip install Flask
 
@@ -16,9 +16,20 @@ pip install Flask-Login
 
 pip install twilio
 
+pip install matplotlib
+
+pip install --upgrade numpy scipy pillow
+
 py app.py
 
 Acessar pelo browser:
 
 http://localhost:5000/
 
+
+
+
+
+
+# Criar um novo ambiente (exemplo com venv)
+python -m venv novo_ambiente_grafico
